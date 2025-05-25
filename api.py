@@ -10,22 +10,24 @@ import gdown
 import os
 
 
-# ✅ تحميل النموذج الأول
+# ✅ تحميل النموذج الأول (Lung Cancer Classifier)
 if not os.path.exists("best_model_f.h5"):
     gdown.download(
-        "https://drive.google.com/uc?id=FILE_ID_HERE", 
-        "best_model_f.h5", quiet=False
+        "https://drive.google.com/uc?id=1kZUTLSB3JJmLJQwTeV9x6JgtG0ixmjJd",
+        "best_model_f.h5",
+        quiet=False,
     )
 
-# ✅ تحميل النموذج الثاني
+# ✅ تحميل النموذج الثاني (X-ray Filter)
 if not os.path.exists("xray_filter_model1.h5"):
     gdown.download(
-        "https://drive.google.com/uc?id=FILE_ID_HERE", 
-        "xray_filter_model1.h5", quiet=False
+        "https://drive.google.com/uc?id=1YrZGhKZLoLdbEvMsIJyZSELg8VVOxYJV",
+        "xray_filter_model1.h5",
+        quiet=False,
     )
 # ✅ Load models
-#lung_model = load_model("best_model_f.h5", compile=False)
-# filter_model = load_model("xray_filter_model1.h5", compile=False)
+lung_model = load_model("best_model_f.h5", compile=False)
+filter_model = load_model("xray_filter_model1.h5", compile=False)
 
 # ✅ Class labels
 class_labels = [
