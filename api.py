@@ -10,7 +10,7 @@ import gdown
 import os
 
 
-# ✅ تحميل النموذج الأول (Lung Cancer Classifier)
+# ✅ تحميل النموذج الأول من Google Drive
 if not os.path.exists("best_model_f.h5"):
     gdown.download(
         "https://drive.google.com/uc?id=1kZUTLSB3JJmLJQwTeV9x6JgtG0ixmjJd",
@@ -18,7 +18,7 @@ if not os.path.exists("best_model_f.h5"):
         quiet=False,
     )
 
-# ✅ تحميل النموذج الثاني (X-ray Filter)
+# ✅ تحميل النموذج الثاني من Google Drive
 if not os.path.exists("xray_filter_model1.h5"):
     gdown.download(
         "https://drive.google.com/uc?id=1YrZGhKZLoLdbEvMsIJyZSELg8VVOxYJV",
