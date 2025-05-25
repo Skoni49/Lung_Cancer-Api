@@ -10,24 +10,25 @@ import gdown
 import os
 
 
-if not os.path.exists("best_model_f.h5"):
+MODEL_PATH1 = os.path.join(os.getcwd(), "best_model_f.h5")
+MODEL_PATH2 = os.path.join(os.getcwd(), "xray_filter_model1.h5")
+
+if not os.path.exists(MODEL_PATH1):
     gdown.download(
         "https://drive.google.com/uc?id=1kZUTLSB3JJmLJQwTeV9x6JgtG0ixmjJd",
-        "best_model_f.h5",
+        MODEL_PATH1,
         quiet=False,
     )
 
-# تحميل النموذج الثاني من Google Drive إذا لم يكن موجودًا محليًا
-if not os.path.exists("xray_filter_model1.h5"):
+if not os.path.exists(MODEL_PATH2):
     gdown.download(
         "https://drive.google.com/uc?id=1YrZGhKZLoLdbEvMsIJyZSELg8VVOxYJV",
-        "xray_filter_model1.h5",
+        MODEL_PATH2,
         quiet=False,
     )
 
-# تحميل النماذج بعد تنزيلها
-lung_model = load_model("best_model_f.h5", compile=False)
-filter_model = load_model("xray_filter_model1.h5", compile=False)
+lung_model = load_model(MODEL_PATH1, compile=False)
+filter_model = load_model(MODEL_PATH2, compile=False)
 # ✅ Class labels
 class_labels = [
     "Adenocarcinoma",
